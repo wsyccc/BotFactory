@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'HomepageController';
 $route['home'] = "HomepageController/index";
 $route['parts'] = "PartsController/index";
+$route['parts/(:num)'] = 'PartsController/details/$1';
 $route['about'] = "AboutController/index";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
