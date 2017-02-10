@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Homepage extends Application
+class HomepageController extends Application
 {
 
 	/**
