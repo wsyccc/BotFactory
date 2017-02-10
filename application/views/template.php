@@ -6,12 +6,35 @@
         <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
+        <script src="/assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+
+
 	</head>
 	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="/homepage">Bot Factory</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/homepage">Homepage</a></li>
+			<li><a href="/parts">Parts</a></li>
+			<li><a href="/history">History</a></li>
+			<li><a href="/assembly">Assembly</a></li>
+		    <li><a href="/about">About</a></li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
         <div id="container">
 			{content}
-			<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. 
-				{ci_version}</p>
+			<p class="footer">Bot Factory brought to you by Team Apple. {ci_version}</p>
         </div>
+
 	</body>
 </html>
