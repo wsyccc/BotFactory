@@ -27,22 +27,46 @@ class PartsController extends Application
 		$source = $this->parts->all();
 		foreach ($source as $record)
 		{
-			$parts[] = array('part_code' => $record['part_code']);
+			$piece_type = substr($record['part_code'], 1, 1);
+			$piece = '';
+			if ($piece_type == '1')
+			{
+				$piece = "Top";
+			}
+			else if ($piece_type == '2')
+			{
+				$piece = "Torso";
+			}
+			else if ($piece_type == '3')
+			{
+				$piece = "Bottom";
+			}
+
+
+			$line_code = substr($record['part_code'], 0, 1);
+			$household_range = range('a', 'l');
+			$butler_range = range('m', 'v');
+			$companion_range = range('w', 'z');
+
+			$line = '';
+
+			if (in_array($line_code, $household_range)) // Household bot
+			{
+				$line = 'Household';
+			}
+			else if (in_array($line_code, $butler_range)) // Butler bot
+			{
+				$line = 'Butler';
+			}
+			else if (in_array($line_code, $companion_range)) // Companion bot
+			{
+				$line = 'Companion';
+			}
+
+			$parts[] = array('part_code' => $record['part_code'], 'piece_type' => $piece, 'line' => $line);
 		}
 		$this->data['parts'] = $parts;
 
-		/*
-		$parts = $this->parts->all();
-
-		$images = array();
-
-		foreach ($parts as $part)
-		{
-			$images[] = "/pix/parts/" . $part['part_code'] . ".jpeg";
-		}
-
-		$this->data['images'] = $images;
-		*/
 		$this->render();
 	}
 

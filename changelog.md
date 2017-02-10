@@ -15,6 +15,8 @@ Changelog format: Bottom to top (New to old).
 <h2>Version: </h2>
 Version | Release Date | Description  | Editor
 --- | --- | --- | ---
+*v1.4* | Feb 09, 2017 | Modified parts page to display part type and line. | `jasonlee97`
+*v1.3* | Feb 09, 2017 | Added about page and standardized all the routes. | `arnoldmyint`
 *v1.2* | Feb 09, 2017 | Added basic parts display. | `jasonlee97`
 *v1.1* | Feb 09, 2017 | Added Homepage and edited masterpage template. | `Arv91`
 *v1.0* | Feb 08, 2017 | Initial commit. | `arnoldmyint`
