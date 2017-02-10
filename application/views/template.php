@@ -17,13 +17,13 @@
       <div class="container">
         <div class="navbar-header">
           
-          <a class="navbar-brand" href="/homepage">Bot Factory</a>
+          <a class="navbar-brand" href="/home">Bot Factory</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/homepage">Homepage</a></li>
-			<li><a href="/partscontroller">Parts</a></li>
-			<li><a href="/history">History</a></li>
+            <li><a href="/home">Homepage</a></li>
+			<li><a href="/parts">Parts</a></li>
+			<li><a href="/histroy">History</a></li>
 			<li><a href="/assembly">Assembly</a></li>
 		    <li><a href="/about">About</a></li>
           </ul>
