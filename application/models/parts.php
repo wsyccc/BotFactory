@@ -2,23 +2,6 @@
 
 class Parts extends CI_Model
 {
-	/*
-	// Parts ID
-	public $part_id;
-
-	// Robot part code (e.g. A3, C2)
-	public $part_code;
-
-	// Certificate of Authenticity code (6-8 digit hex code)
-	public $CA_code;
-
-	// Plant built at
-	public $manufacturer;
-
-	// date & time built
-	public $built_date;
-	*/
-
 	var $data = array(
 			array('part_id' => '1', 'part_code' => 'a1', 'CA_code' => '#000000', 'manufacturer' => 'bcit', 'built_date' => "02-08-2017 8:30"),
 			array('part_id' => '2', 'part_code' => 'a2', 'CA_code' => '#000001', 'manufacturer' => 'bcit', 'built_date' => "02-08-2017 11:45"),
@@ -51,6 +34,7 @@ class Parts extends CI_Model
 		parent::__construct();
 	}
 
+	// Gets the specified part (by id)
 	function get($which)
 	{
 		foreach ($this->data as $record)
@@ -59,6 +43,7 @@ class Parts extends CI_Model
 		return null;
 	}
 
+	// Gets all parts in stock
 	function all()
 	{
 		return $this->data;

@@ -2,6 +2,12 @@
 
 <div class="row">
 	{parts}
-		<div class="col-xs-4"><img class="img-responsive" src="/pix/parts/{part_code}.jpeg" title="{part_code}"></div>
+		<div class="col-xs-4">
+			<a href="#">
+				<img class="img-responsive" src="/pix/parts/{part_code}.jpeg" title="{part_code}">
+			</a>
+			<h5>Piece type: {piece_type}</h5>
+			<h5>Line: {line}</h5>
+		</div>
 	{/parts}
 </div>
