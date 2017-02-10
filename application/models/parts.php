@@ -38,7 +38,7 @@ class Parts extends CI_Model
 	function get($which)
 	{
 		foreach ($this->data as $record)
-			if ($record['id'] == $which)
+			if ($record['part_id'] == $which)
 				return $record;
 		return null;
 	}

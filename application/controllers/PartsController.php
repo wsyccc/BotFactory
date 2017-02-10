@@ -63,9 +63,25 @@ class PartsController extends Application
 				$line = 'Companion';
 			}
 
-			$parts[] = array('part_code' => $record['part_code'], 'piece_type' => $piece, 'line' => $line);
+			$parts[] = array('id' => $record['part_id'], 'part_code' => $record['part_code'], 'piece_type' => $piece, 'line' => $line);
 		}
 		$this->data['parts'] = $parts;
+
+		$this->render();
+	}
+
+	public function details($id)
+	{
+		$this->data['pagetitle'] = 'Bot Factory - Part details';
+		$this->data['pagebody'] = 'part_details';
+
+		$source = $this->parts->get($id);
+
+		$this->data['id'] = $source['part_id'];
+		$this->data['part_code'] = $source['part_code'];
+		$this->data['CA_code'] = $source['CA_code'];
+		$this->data['manufacturer'] = $source['manufacturer'];
+		$this->data['built_date'] = $source['built_date'];
 
 		$this->render();
 	}
