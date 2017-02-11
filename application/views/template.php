@@ -23,7 +23,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/home">Homepage</a></li>
 			<li><a href="/parts">Parts</a></li>
-			<li><a href="/histroy">History</a></li>
+			<li><a href="/history">History</a></li>
 			<li><a href="/assembly">Assembly</a></li>
 		    <li><a href="/about">About</a></li>
           </ul>
