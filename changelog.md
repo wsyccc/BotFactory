@@ -15,6 +15,7 @@ Changelog format: Bottom to top (New to old).
 <h2>Version: </h2>
 Version | Release Date | Description  | Editor
 --- | --- | --- | ---
+*v1.7* | Feb 11, 2017 | Updated homepage to display current factory information | `Arv91`
 *v1.6* | Feb 10, 2017 | Added history details page to display history information | `bcitdaltond`
 *v1.5* | Feb 09, 2017 | Added part details page to display detailed information about the part. | `jasonlee97`
 *v1.4* | Feb 09, 2017 | Modified parts page to display part type and line. | `jasonlee97`
