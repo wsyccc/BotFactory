@@ -77,3 +77,38 @@ p.footer {
 .navbar-right {
   float: right!important;
 }
+.partTag1, .partTag2{
+	text-align: center;
+	margin-right: 12%;
+}
+#thePart{
+	margin-bottom: 25px;
+}
+.theTable{
+	margin-left: 9%;
+}
+caption{
+	margin-left: 45%;
+	font-family: "Arial Black";
+	font-size: medium;
+}
+.checkboxRobot, .checkboxPart{
+	width: 20px;
+	height: 20px;
+}
+.robotSelector, .partSelector{
+	text-align: center;
+	font-size: medium;
+}
+.buttons{
+	text-align: center;
+	margin-top: 8%;
+	margin-bottom: 15%;
+}
+.ship{
+	text-align: center;
+	margin-top: 8%;
+}
+#robotDetail{
+	margin-top: 15%;
+}

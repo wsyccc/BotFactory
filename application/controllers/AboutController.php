@@ -4,6 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AboutController extends Application
 {
+    function __construct()
+    {
+        parent::__construct();
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -19,7 +23,7 @@ class AboutController extends Application
 	{
 		$this->data['pagetitle'] = 'Bot Factory - About';
 
-		$this->data['pagebody'] = 'about';
+		$this->data['pagebody'] = 'About/about';
 
 		$this->data['logo'] = '/pix/icons/robot_logo.png';
 

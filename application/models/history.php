@@ -6,96 +6,118 @@ class History extends CI_Model
     //purchases, assemblies, and shipments;
 	var $data = array(
 		array(
-			'id' => '1',
+            'historyID' => 1,
 			'who' => 'Dalton',
 			'category' => 'Purchases',
+            'which' => 'parts',
 			'type' => 'Returned',
-			'price' => '20',
+			'price' => 20,
 			'description' => 'Did not like the product',
-			'date' => '02-08-2017 08:30'
+			'date' => '02-08-2017 08:30',
+            'quantity' => 1,
+            'partID' => 11
 			),
 		array(
-			'id' => '2',
+			'historyID' => 2,
 			'who' => 'Jason',
 			'category' => 'Shipments',
+            'which' => 'parts',
 			'type' => 'Ordered',
-			'price' => '100',
+			'price' => 100,
 			'description' => 'order a view more parts to the collection',
-			'date' => '02-08-2017 12:20'
-			),
+			'date' => '02-08-2017 12:20',
+            'quantity' => 5,
+            'partID' => 11
+             ),
       array(
-			'id' => '3',
+			'historyID' => 3,
 			'who' => 'Arnold',
 			'category' => 'Assemblies',
 			'type' => 'Built',
-			'price' => 'null',
+			'price' => 125,
 			'description' => 'Arnold built a robot',
-			'date' => '02-08-2017 13:00'
-			),
+			'date' => '02-08-2017 13:00',
+            'quantity' => 5,
+            'robotID' => 7
+            ),
       array(
-			'id' => '4',
+			'historyID' => 4,
 			'who' => 'Dalton',
 			'category' => 'Shipments',
 			'type' => 'Arrived',
-			'price' => 'null',
+			'price' => 40,
 			'description' => 'Recieved a shipment of parts',
-			'date' => '02-07-2017 12:00'
+			'date' => '02-07-2017 12:00',
+            'quantity' => 5,
+            'partID' => 1
 			),
       array(
-			'id' => '5',
+			'historyID' => 5,
 			'who' => 'Jason',
 			'category' => 'Shipments',
 			'type' => 'Ordered',
-			'price' => '2000',
+			'price' => 2000,
 			'description' => 'order a view more parts to the collection',
-			'date' => '02-09-2017 15:00'
+			'date' => '02-09-2017 15:00',
+            'quantity' => 40,
+            'partID' => 18
 			),
       array(
-			'id' => '6',
+			'historyID' => 6,
 			'who' => 'Jason',
 			'category' => 'Purchases',
 			'type' => 'Purchased',
-			'price' => '50',
+			'price' => 50,
 			'description' => 'Jason purchased a part',
-			'date' => '02-08-2017 20:20'
+			'date' => '02-08-2017 20:20',
+            'quantity' => 2,
+            'partID' => 13
 			),
       array(
-			'id' => '7',
+			'historyID' => 7,
 			'who' => 'Dalton',
 			'category' => 'Shipments',
 			'type' => 'Arrived',
-			'price' => 'null',
+			'price' => 100,
 			'description' => 'Shipment arrived and viewed by dalton',
-			'date' => '02-08-2017 12:00'
+			'date' => '02-08-2017 12:00',
+            'quantity' => 2,
+            'robotID' => 4
 			),
       array(
-			'id' => '8',
+			'historyID' => 8,
 			'who' => 'Arnold',
 			'category' => 'Purchased',
 			'type' => 'Returned',
-			'price' => '524',
+			'price' => 500,
 			'description' => 'Arnold didn\'t like the part/products',
-			'date' => '02-08-2017 12:00'
+			'date' => '02-08-2017 12:00',
+            'quantity' => 10,
+            'robotID' => 4
 			),
        		array(
-			'id' => '9',
+			'historyID' => 9,
 			'who' => 'Dalton',
 			'category' => 'Assemblies',
 			'type' => 'Ordered',
-			'price' => '1374',
+			'price' => 250,
 			'description' => 'Built a robot',
-			'date' => '02-08-2017 12:00'
+			'date' => '02-08-2017 12:00',
+            'quantity' => 10,
+            'robotID' => 8
 			),
 		array(
-			'id' => '10',
+			'historyID' => 10,
 			'who' => 'Arnold',
 			'category' => 'Shipments',
 			'type' => 'Arrived',
-			'price' => 'null',
+			'price' => 50,
 			'description' => 'The oh oh so awesome parts have arrived from the
 							shipment containers from the shore line. The parts will
 							be inspected later on in the day.',
-			'date' => '02-08-2017 12:00'
+			'date' => '02-08-2017 12:00',
+            'quantity' => 1,
+            'partID' => 16
 			)
 	);
 	
@@ -109,7 +131,7 @@ class History extends CI_Model
 	function get($which)
 	{
 		foreach ($this->data as $record)
-			if ($record['id'] == $which)
+			if ($record['historyID'] == $which)
 				return $record;
 		return null;
 	}

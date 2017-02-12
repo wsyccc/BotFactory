@@ -5,6 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class HistoryController extends Application
 {
+    function __construct()
+    {
+        parent::__construct();
+    }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -18,7 +22,7 @@ class HistoryController extends Application
 	public function index()
 	{
 		$this->data['pagetitle'] = 'Bot Factory - History';
-		$this->data['pagebody'] = 'history_page';
+		$this->data['pagebody'] = 'History/history_page';
        
 		$source = $this->history->all();
 		$history = array ();
