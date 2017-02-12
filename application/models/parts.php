@@ -43,6 +43,11 @@ class Parts extends CI_Model
 		return null;
 	}
 
+	public function count()
+	{
+        return sizeof($this->data);
+    }
+    
 	// Gets all parts in stock
 	function all()
 	{

@@ -10,7 +10,7 @@ class History extends CI_Model
 			'who' => 'Dalton',
 			'category' => 'Purchases',
 			'type' => 'Returned',
-			'price' => '20',
+			'price' => 20,
 			'description' => 'Did not like the product',
 			'date' => '02-08-2017 08:30'
 			),
@@ -19,7 +19,7 @@ class History extends CI_Model
 			'who' => 'Jason',
 			'category' => 'Shipments',
 			'type' => 'Ordered',
-			'price' => '100',
+			'price' => 100,
 			'description' => 'order a view more parts to the collection',
 			'date' => '02-08-2017 12:20'
 			),
@@ -28,7 +28,7 @@ class History extends CI_Model
 			'who' => 'Arnold',
 			'category' => 'Assemblies',
 			'type' => 'Built',
-			'price' => 'null',
+			'price' => null,
 			'description' => 'Arnold built a robot',
 			'date' => '02-08-2017 13:00'
 			),
@@ -37,8 +37,8 @@ class History extends CI_Model
 			'who' => 'Dalton',
 			'category' => 'Shipments',
 			'type' => 'Arrived',
-			'price' => 'null',
-			'description' => 'Recieved a shipment of parts',
+			'price' => null,
+			'description' => 'Received a shipment of parts',
 			'date' => '02-07-2017 12:00'
 			),
       array(
@@ -46,8 +46,8 @@ class History extends CI_Model
 			'who' => 'Jason',
 			'category' => 'Shipments',
 			'type' => 'Ordered',
-			'price' => '2000',
-			'description' => 'order a view more parts to the collection',
+			'price' => 2000,
+			'description' => 'order a few more parts to the collection',
 			'date' => '02-09-2017 15:00'
 			),
       array(
@@ -55,7 +55,7 @@ class History extends CI_Model
 			'who' => 'Jason',
 			'category' => 'Purchases',
 			'type' => 'Purchased',
-			'price' => '50',
+			'price' => 50,
 			'description' => 'Jason purchased a part',
 			'date' => '02-08-2017 20:20'
 			),
@@ -64,16 +64,16 @@ class History extends CI_Model
 			'who' => 'Dalton',
 			'category' => 'Shipments',
 			'type' => 'Arrived',
-			'price' => 'null',
+			'price' => null,
 			'description' => 'Shipment arrived and viewed by dalton',
 			'date' => '02-08-2017 12:00'
 			),
       array(
 			'id' => '8',
 			'who' => 'Arnold',
-			'category' => 'Purchased',
+			'category' => 'Purchases',
 			'type' => 'Returned',
-			'price' => '524',
+			'price' => 524,
 			'description' => 'Arnold didn\'t like the part/products',
 			'date' => '02-08-2017 12:00'
 			),
@@ -82,7 +82,7 @@ class History extends CI_Model
 			'who' => 'Dalton',
 			'category' => 'Assemblies',
 			'type' => 'Ordered',
-			'price' => '1374',
+			'price' => 1374,
 			'description' => 'Built a robot',
 			'date' => '02-08-2017 12:00'
 			),
@@ -91,7 +91,7 @@ class History extends CI_Model
 			'who' => 'Arnold',
 			'category' => 'Shipments',
 			'type' => 'Arrived',
-			'price' => 'null',
+			'price' => null,
 			'description' => 'The oh oh so awesome parts have arrived from the
 							shipment containers from the shore line. The parts will
 							be inspected later on in the day.',
@@ -114,9 +114,42 @@ class History extends CI_Model
 		return null;
 	}
 	
+	public function count()
+	{
+        return sizeof($this->data);
+    }
+
 	// retrieve all of the records
 	function all()
 	{
 		return $this->data;
+	}
+
+
+	public function getSpent()
+	{
+		$moneySpent = 0;
+		foreach ($this->data as $record) 
+		{
+			if ($record['category'] == 'Purchases') 
+			{
+				$moneySpent += $record['price'];
+			}
+		}
+		return $moneySpent;
+	}
+
+
+	public function getEarned()
+	{
+		$moneyEarned = 0;
+		foreach ($this->data as $record) 
+		{
+			if ($record['category'] == 'Shipments') 
+			{
+				$moneyEarned += $record['price'];
+			}
+		}
+		return $moneyEarned;
 	}
 }

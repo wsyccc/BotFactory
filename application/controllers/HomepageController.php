@@ -22,6 +22,14 @@ class HomepageController extends Application
 
 		$this->data['pagebody'] = 'homepage';
 
+		$data = array();
+		$parts = $this->parts->count();
+		//$robots = $this->robot->count();
+		$spent = $this->history->getSpent();
+		$earned = $this->history->getEarned();
+		$data = array('parts'=> $parts, 'spent' => $spent , 'earned' => $earned);//'robots' => $robots,
+        $this->data = array_merge($this->data, $data);
+
 		$this->render(); 
 	}
 
