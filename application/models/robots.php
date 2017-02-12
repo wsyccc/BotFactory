@@ -34,9 +34,6 @@ class robots extends CI_Model
 
     }
 
-    public function all(){
-        return $this->data;
-    }
     public function get($which)
     {
         foreach ($this->data as $record)
@@ -44,4 +41,14 @@ class robots extends CI_Model
                 return $record;
         return null;
     }
+
+        public function count()
+    {
+        return sizeof($this->data);
+    }
+
+    public function all(){
+        return $this->data;
+    }
+
 }

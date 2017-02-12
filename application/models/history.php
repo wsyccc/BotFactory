@@ -87,7 +87,7 @@ class History extends CI_Model
       array(
 			'historyID' => 8,
 			'who' => 'Arnold',
-			'category' => 'Purchased',
+			'category' => 'Purchases',
 			'type' => 'Returned',
 			'price' => 500,
 			'description' => 'Arnold didn\'t like the part/products',
@@ -112,7 +112,7 @@ class History extends CI_Model
 			'category' => 'Shipments',
 			'type' => 'Arrived',
 			'price' => 50,
-			'description' => 'The oh oh so awesome parts have arrived from the
+			'description' => 'The missing parts have arrived from the
 							shipment containers from the shore line. The parts will
 							be inspected later on in the day.',
 			'date' => '02-08-2017 12:00',
@@ -136,9 +136,42 @@ class History extends CI_Model
 		return null;
 	}
 	
+	public function count()
+	{
+        return sizeof($this->data);
+    }
+
 	// retrieve all of the records
 	function all()
 	{
 		return $this->data;
+	}
+
+
+	public function getSpent()
+	{
+		$moneySpent = 0;
+		foreach ($this->data as $record) 
+		{
+			if ($record['category'] == 'Purchases') 
+			{
+				$moneySpent += $record['price'];
+			}
+		}
+		return $moneySpent;
+	}
+
+
+	public function getEarned()
+	{
+		$moneyEarned = 0;
+		foreach ($this->data as $record) 
+		{
+			if ($record['category'] == 'Shipments') 
+			{
+				$moneyEarned += $record['price'];
+			}
+		}
+		return $moneyEarned;
 	}
 }

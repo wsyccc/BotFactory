@@ -1,9 +1,6 @@
 <h1>History View</h1>
 
 <div id="body">
-
-   <p>The page you are looking at is history view.</p>
-
    <!-- WHO | CATEGORY | TYPE | PRICE | DESCRIPTION | DATE -->
    <table class="table">
       <thead class="thead-inverse">
