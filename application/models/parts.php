@@ -79,6 +79,7 @@ class Parts extends CI_Model
 		return null;
 	}
 
+  // Gets the amount of parts 
 	public function count()
 	{
     return sizeof($this->data);

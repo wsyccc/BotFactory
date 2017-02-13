@@ -21,7 +21,7 @@ class AboutController extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagetitle'] = 'Bot Factory - About';
+		$this->data['pagetitle'] = 'BotFactory - About';
 
 		$this->data['pagebody'] = 'About/about';
 

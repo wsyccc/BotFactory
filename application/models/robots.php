@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Siyuan
- * Date: 2017/2/10
- * Time: 23:36
- */
 class robots extends CI_Model
 {
     var $data = array(
@@ -34,6 +28,8 @@ class robots extends CI_Model
 
     }
 
+
+    // Gets the specific robot
     public function get($which)
     {
         foreach ($this->data as $record)
@@ -42,11 +38,13 @@ class robots extends CI_Model
         return null;
     }
 
-        public function count()
+    // Gets the amount of parts 
+    public function count()
     {
         return sizeof($this->data);
     }
 
+    // Gets all parts in stock
     public function all(){
         return $this->data;
     }

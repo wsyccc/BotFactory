@@ -22,7 +22,7 @@ class HomepageController extends Application
 	public function index()
 	{
 
-		$this->data['pagetitle'] = 'Bot Factory - Homepage';
+		$this->data['pagetitle'] = 'BotFactory - Homepage';
 
 		$this->data['pagebody'] = 'homepage';
 
@@ -32,6 +32,7 @@ class HomepageController extends Application
 		$spent = $this->history->getSpent();
 		$earned = $this->history->getEarned();
 		$data = array('parts'=> $parts, 'robots' => $robots, 'spent' => $spent , 'earned' => $earned);
+        
         $this->data = array_merge($this->data, $data);
 
 		$this->render(); 

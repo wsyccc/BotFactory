@@ -1,4 +1,5 @@
 <?php
+
 class History extends CI_Model 
 {
 
@@ -136,6 +137,7 @@ class History extends CI_Model
 		return null;
 	}
 	
+	// count all the history
 	public function count()
 	{
         return sizeof($this->data);
@@ -147,7 +149,7 @@ class History extends CI_Model
 		return $this->data;
 	}
 
-
+	// get the money spent 
 	public function getSpent()
 	{
 		$moneySpent = 0;
@@ -161,7 +163,7 @@ class History extends CI_Model
 		return $moneySpent;
 	}
 
-
+	// returns the amount earned
 	public function getEarned()
 	{
 		$moneyEarned = 0;
