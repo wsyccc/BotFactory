@@ -6,6 +6,7 @@
         <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/default.css"/>
+        <link rel="icon" href="/pix/icons/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
         <script src="/assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
@@ -16,8 +17,7 @@
 		<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          
-          <a class="navbar-brand" href="/home">Bot Factory</a>
+            <a class="navbar-brand" href="/home">Bot Factory</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

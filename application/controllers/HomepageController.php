@@ -4,6 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class HomepageController extends Application
 {
+    function __construct()
+    {
+        parent::__construct();
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -24,10 +28,10 @@ class HomepageController extends Application
 
 		$data = array();
 		$parts = $this->parts->count();
-		//$robots = $this->robot->count();
+		$robots = $this->robots->count();
 		$spent = $this->history->getSpent();
 		$earned = $this->history->getEarned();
-		$data = array('parts'=> $parts, 'spent' => $spent , 'earned' => $earned);//'robots' => $robots,
+		$data = array('parts'=> $parts, 'robots' => $robots, 'spent' => $spent , 'earned' => $earned);
         $this->data = array_merge($this->data, $data);
 
 		$this->render(); 
