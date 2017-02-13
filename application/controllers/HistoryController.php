@@ -21,7 +21,8 @@ class HistoryController extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagetitle'] = 'Bot Factory - History';
+		$this->data['pagetitle'] = 'BotFactory - History';
+		
 		$this->data['pagebody'] = 'History/history_page';
        
 		$source = $this->history->all();
@@ -41,6 +42,7 @@ class HistoryController extends Application
 		}
        
 		$this->data['history'] = $history;
+
 		$this->render();
 	}
 }

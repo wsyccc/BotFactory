@@ -15,7 +15,7 @@ class RobotController extends Application
     }
 
     public function details($which){
-        $this->data['pagetitle'] = 'Bot Factory - Robot details';
+        $this->data['pagetitle'] = 'BotFactory - Robot details';
         $this->data['pagebody'] = 'Robot/robots';
 
         $source = $this->robots->get($which);
