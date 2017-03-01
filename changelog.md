@@ -16,6 +16,7 @@ Changelog format: Bottom to top (New to old).
 <h2>Version: </h2>
 Version | Release Date | Description  | Editor
 --- | --- | --- | ---
+*v1.9.1* | Feb 28, 2017 | Setting up the Github Webhook. | `arnoldmyint`
 *v1.9* | Feb 11, 2017 | Added content to the About page and tidy up all the loose ends. | `arnoldmyint`
 *v1.8* | Feb 11, 2017 | Added robot model, assembly controller and view, modifed part and history model. | `wsyccc`
 *v1.7* | Feb 11, 2017 | Updated homepage to display current factory information. | `Arv91`
