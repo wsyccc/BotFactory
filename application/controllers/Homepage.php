@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomepageController extends Application
+class Homepage extends Application
 {
     function __construct()
     {
@@ -22,11 +22,11 @@ class HomepageController extends Application
 	public function index()
 	{
 
+	    //set page title and view
 		$this->data['pagetitle'] = 'BotFactory - Homepage';
-
 		$this->data['pagebody'] = 'homepage';
 
-		$data = array();
+        // get all the parameters the dashboard need
 		$parts = $this->parts->count();
 		$robots = $this->robots->count();
 		$spent = $this->history->getSpent();

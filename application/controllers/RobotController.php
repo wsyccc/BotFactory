@@ -8,14 +8,23 @@ class RobotController extends Application
         parent::__construct();
     }
 
+    /**
+     * the home page of robot page
+     */
     public function index(){
         $this->data['pagetitle'] = 'Bot Factory - Robots';
         $this->data['pagebody'] = 'Robot/robots';
 
     }
 
+    /**
+     * @param $which the id of the item that we are looking for
+     */
     public function details($which){
+
+        // set all the parameters the page needed
         $this->data['pagetitle'] = 'BotFactory - Robot details';
+
         $this->data['pagebody'] = 'Robot/robots';
 
         $source = $this->robots->get($which);

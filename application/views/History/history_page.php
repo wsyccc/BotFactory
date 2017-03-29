@@ -1,29 +1,26 @@
 <h1>History View</h1>
 
 <div id="body">
-   <!-- WHO | CATEGORY | TYPE | PRICE | DESCRIPTION | DATE -->
+   <!--  transactionId | customerName | date | category | price | description | partId -->
    <table class="table">
       <thead class="thead-inverse">
          <tr>
             <th>Who</th>
             <th>Category</th>
-            <th>Type</th>
             <th>Price</th>
             <th>Date</th>
             <th>Description</th>
+            <th>Part ID</th>
          </tr>
       </thead>
       <tbody>
          {history}
          <tr>
             <td>
-                {who}
+                {customerName}
             </td>
             <td>
                 {category}
-            </td>
-            <td>
-                {type}
             </td>
             <td>
                 {price}
@@ -33,6 +30,9 @@
             </td>
             <td>
                 {description}
+            </td>
+            <td>
+                 {partID}
             </td>
          </tr>
          {/history}

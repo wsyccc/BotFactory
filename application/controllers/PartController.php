@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PartsController extends Application
+class PartController extends Application
 {
     function __construct()
     {
@@ -23,8 +23,9 @@ class PartsController extends Application
 	 */
 	public function index()
 	{
-		$this->data['pagetitle'] = 'BotFactory - Parts';
 
+	    // set page title and view
+		$this->data['pagetitle'] = 'BotFactory - Parts';
 		$this->data['pagebody'] = 'Parts/parts_page';
 
 		$source = $this->parts->all();
@@ -34,10 +35,14 @@ class PartsController extends Application
 		$this->render();
 	}
 
+    /**
+     * @param $id the id we are using to allocate the item
+     * set data to the model
+     */
+
 	public function details($id)
 	{
-		$this->data['pagetitle'] = 'Bot Factory - Part details';
-		
+		$this->data['pagetitle'] = 'BotFactory - Part Details';
 		$this->data['pagebody'] = 'Parts/part_details';
 
 		$source = $this->parts->get($id);
@@ -53,6 +58,7 @@ class PartsController extends Application
 		$this->data['built_date'] = $source['built_date'];
         
         $this->data['cost'] = $source['cost'];
+        $this->data['isAvailable'] = $source['isAvailable'];
 
 		$this->render();
 	}
