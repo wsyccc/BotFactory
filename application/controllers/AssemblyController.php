@@ -14,6 +14,9 @@ class AssemblyController extends Application
      */
     public function index()
     {
+        $role = $this->session->userdata('userrole');
+        if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
+
         //get all parts
         $parts = $this->parts->all();
         //get all robots
@@ -63,7 +66,7 @@ class AssemblyController extends Application
         $rows = $this->table->make_columns($cellsForRobots, 3);
         $this->data['tableRobots'] = $this->table->generate($rows);
 
-        $this->data['pagetitle'] = 'BotFactory - Assembly';
+        $this->data['pagetitle'] = 'BotFactory - Assembly ('. $role . ')';
 
         $this->data['pagebody'] = 'Assembly/assembly';
         $this->render();

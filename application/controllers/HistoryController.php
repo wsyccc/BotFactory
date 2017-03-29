@@ -22,7 +22,10 @@ class HistoryController extends Application
      */
     public function index()
     {
-        $this->data['pagetitle'] = 'BotFactory - History';
+        $role = $this->session->userdata('userrole');
+        if ($role != ROLE_BOSS) redirect('/home');
+
+        $this->data['pagetitle'] = 'BotFactory - History ('. $role . ')';
 
         $this->data['pagebody'] = 'History/history_page';
 
