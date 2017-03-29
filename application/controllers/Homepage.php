@@ -21,10 +21,10 @@ class Homepage extends Application
 	 */
 	public function index()
 	{
-
+		$role = $this->session->userdata('userrole');
 	    //set page title and view
-		$this->data['pagetitle'] = 'BotFactory - Homepage';
-		$this->data['pagebody'] = 'homepage';
+		$this->data['pagetitle'] = 'BotFactory - Homepage ('. $role . ')';
+		$this->data['pagebody'] = 'homepage' ;
 
         // get all the parameters the dashboard need
 		$parts = $this->parts->count();

@@ -23,9 +23,11 @@ class PartController extends Application
 	 */
 	public function index()
 	{
+		$role = $this->session->userdata('userrole');
+        if ($role == ROLE_GUEST) redirect('/home');
 
 	    // set page title and view
-		$this->data['pagetitle'] = 'BotFactory - Parts';
+		$this->data['pagetitle'] = 'BotFactory - Parts ('. $role . ')';
 		$this->data['pagebody'] = 'Parts/parts_page';
 
 		$source = $this->parts->all();
@@ -42,7 +44,10 @@ class PartController extends Application
 
 	public function details($id)
 	{
-		$this->data['pagetitle'] = 'BotFactory - Part Details';
+		$role = $this->session->userdata('userrole');
+        if ($role == ROLE_GUEST) redirect('/home');
+        
+		$this->data['pagetitle'] = 'BotFactory - Part Details ('. $role . ')';
 		$this->data['pagebody'] = 'Parts/part_details';
 
 		$source = $this->parts->get($id);
