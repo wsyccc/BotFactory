@@ -22,8 +22,25 @@ class Homepage extends Application
 	public function index()
 	{
 		$role = $this->session->userdata('userrole');
+
 	    //set page title and view
 		$this->data['pagetitle'] = 'BotFactory - Homepage ('. $role . ')';
+
+		switch ($role) {
+			case ROLE_GUEST:
+				$this->data['menubuttons'] = '_buttonsguest';
+		        break;
+		    case ROLE_WORKER:
+		        $this->data['menubuttons'] = '_buttonsworker';
+		        break;
+		    case ROLE_SUPERVISOR:
+		        $this->data['menubuttons'] = '_buttonssupervisor';
+		        break;
+		    case ROLE_BOSS:
+		        $this->data['menubuttons'] = '_buttonsboss';
+		        break;
+		}
+		
 		$this->data['pagebody'] = 'homepage' ;
 
         // get all the parameters the dashboard need
@@ -31,7 +48,7 @@ class Homepage extends Application
 		$robots = $this->robots->count();
 		$spent = $this->history->getSpent();
 		$earned = $this->history->getEarned();
-		$data = array('parts'=> $parts, 'robots' => $robots, 'spent' => $spent , 'earned' => $earned);
+		$data = array('parts' => $parts, 'robots' => $robots, 'spent' => $spent , 'earned' => $earned);
         
         $this->data = array_merge($this->data, $data);
 

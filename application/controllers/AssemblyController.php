@@ -17,6 +17,25 @@ class AssemblyController extends Application
         $role = $this->session->userdata('userrole');
         if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
 
+            $this->data['pagetitle'] = 'BotFactory - Assembly ('. $role . ')';
+
+        switch ($role) {
+            case ROLE_GUEST:
+                $this->data['menubuttons'] = '_buttonsguest';
+                break;
+            case ROLE_WORKER:
+                $this->data['menubuttons'] = '_buttonsworker';
+                break;
+            case ROLE_SUPERVISOR:
+                $this->data['menubuttons'] = '_buttonssupervisor';
+                break;
+            case ROLE_BOSS:
+                $this->data['menubuttons'] = '_buttonsboss';
+                break;
+        }
+
+        $this->data['pagebody'] = 'Assembly/assembly';
+
         //get all parts
         $parts = $this->parts->all();
         //get all robots
@@ -62,13 +81,10 @@ class AssemblyController extends Application
         $rows = $this->table->make_columns($bottom, 3);
         $this->data['tableBottom'] = $this->table->generate($rows);
 
-        $this->table->set_caption('Assembled Rotots');
+        $this->table->set_caption('Assembled Robots');
         $rows = $this->table->make_columns($cellsForRobots, 3);
         $this->data['tableRobots'] = $this->table->generate($rows);
 
-        $this->data['pagetitle'] = 'BotFactory - Assembly ('. $role . ')';
-
-        $this->data['pagebody'] = 'Assembly/assembly';
         $this->render();
     }
 }
