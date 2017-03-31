@@ -28,6 +28,22 @@ class PartController extends Application
 
 	    // set page title and view
 		$this->data['pagetitle'] = 'BotFactory - Parts ('. $role . ')';
+
+		switch ($role) {
+			case ROLE_GUEST:
+				$this->data['menubuttons'] = '_buttonsguest';
+		        break;
+		    case ROLE_WORKER:
+		        $this->data['menubuttons'] = '_buttonsworker';
+		        break;
+		    case ROLE_SUPERVISOR:
+		        $this->data['menubuttons'] = '_buttonssupervisor';
+		        break;
+		    case ROLE_BOSS:
+		        $this->data['menubuttons'] = '_buttonsboss';
+		        break;
+		}
+
 		$this->data['pagebody'] = 'Parts/parts_page';
 
 		$source = $this->parts->all();
@@ -48,6 +64,22 @@ class PartController extends Application
         if ($role == ROLE_GUEST) redirect('/home');
         
 		$this->data['pagetitle'] = 'BotFactory - Part Details ('. $role . ')';
+
+		switch ($role) {
+			case ROLE_GUEST:
+				$this->data['menubuttons'] = '_buttonsguest';
+		        break;
+		    case ROLE_WORKER:
+		        $this->data['menubuttons'] = '_buttonsworker';
+		        break;
+		    case ROLE_SUPERVISOR:
+		        $this->data['menubuttons'] = '_buttonssupervisor';
+		        break;
+		    case ROLE_BOSS:
+		        $this->data['menubuttons'] = '_buttonsboss';
+		        break;
+		}
+		
 		$this->data['pagebody'] = 'Parts/part_details';
 
 		$source = $this->parts->get($id);

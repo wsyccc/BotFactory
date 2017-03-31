@@ -47,7 +47,7 @@
             Burnaby, British Columbia <br>
             Canada, V5G 3H2 <br>
             Telephone: 604-434-5734 <br>
-            Email: <a href="mailto:info@fotfactory.ca">info@fotfactory.ca</a> <br>
+            Email: <a href="mailto:info@botfactory.ca">info@botfactory.ca</a> <br>
          </p>
       </div>
    </div>

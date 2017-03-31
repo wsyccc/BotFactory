@@ -12,9 +12,28 @@ class RobotController extends Application
      * the home page of robot page
      */
     public function index(){
-        $this->data['pagetitle'] = 'Bot Factory - Robots';
-        $this->data['pagebody'] = 'Robot/robots';
+        $role = $this->session->userdata('userrole');
+        if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
 
+        $this->data['pagetitle'] = 'Bot Factory - Robots ('. $role . ')';
+
+        switch ($role) {
+            case ROLE_GUEST:
+                $this->data['menubuttons'] = '_buttonsguest';
+                break;
+            case ROLE_WORKER:
+                $this->data['menubuttons'] = '_buttonsworker';
+                break;
+            case ROLE_SUPERVISOR:
+                $this->data['menubuttons'] = '_buttonssupervisor';
+                break;
+            case ROLE_BOSS:
+                $this->data['menubuttons'] = '_buttonsboss';
+                break;
+        }
+        
+        $this->data['pagebody'] = 'Robot/robots';
+        $this->render();
     }
 
     /**
@@ -22,8 +41,26 @@ class RobotController extends Application
      */
     public function details($which){
 
+        $role = $this->session->userdata('userrole');
+        if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
+
         // set all the parameters the page needed
-        $this->data['pagetitle'] = 'BotFactory - Robot details';
+        $this->data['pagetitle'] = 'BotFactory - Robot details ('. $role . ')';
+
+        switch ($role) {
+            case ROLE_GUEST:
+                $this->data['menubuttons'] = '_buttonsguest';
+                break;
+            case ROLE_WORKER:
+                $this->data['menubuttons'] = '_buttonsworker';
+                break;
+            case ROLE_SUPERVISOR:
+                $this->data['menubuttons'] = '_buttonssupervisor';
+                break;
+            case ROLE_BOSS:
+                $this->data['menubuttons'] = '_buttonsboss';
+                break;
+        }
 
         $this->data['pagebody'] = 'Robot/robots';
 
