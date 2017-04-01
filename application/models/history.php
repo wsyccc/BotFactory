@@ -1,5 +1,5 @@
 <?php
-class History extends CI_Model
+class History extends MY_Model
 {
 
 	// transactionId | customerName | date | category | price | description | partId
@@ -9,16 +9,16 @@ class History extends CI_Model
     // USE THIS ^
     //
     //purchases, assemblies, and shipments;
-	var $data = array(
-		array(
-            'transactionID' => 1,
-			'customerName' => 'Dalton',
-			'category' => 'Recycling',
-			'price' => 20,
-			'description' => 'Did not like the product',
-			'date' => '02-08-2017 08:30',
-            'partID' => 11
-			),
+//	var $data = array(
+//		array(
+//            'transactionID' => 1,
+//			'customer' => 'Dalton',
+//			'category' => 'Recycling',
+//			'price' => 20,
+//			'description' => 'Did not like the product',
+//			'stamp' => '02-08-2017 08:30',
+//            'partID' => 11
+//			),
 //		array(
 //			'transactionID' => 2,
 //			'who' => 'Jason',
@@ -121,57 +121,57 @@ class History extends CI_Model
 //            'quantity' => 1,
 //            'partID' => 16
 //			)
-	);
+//	);
 	
 	// Constructor
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('history','transactionID');
 	}
 	
 	// retrieve a single record
-	function get($which)
-	{
-		foreach ($this->data as $record)
-			if ($record['transactionID'] == $which)
-				return $record;
-		return null;
-	}
-	
-	public function count()
-	{
-        return sizeof($this->data);
-    }
-
-	// retrieve all of the records
-	function all()
-	{
-		return $this->data;
-	}
-
-
+//	function get($which)
+//	{
+//		foreach ($this->data as $record)
+//			if ($record['transactionID'] == $which)
+//				return $record;
+//		return null;
+//	}
+//
+//	public function count()
+//	{
+//        return sizeof($this->data);
+//    }
+//
+//	// retrieve all of the records
+//	function all()
+//	{
+//		return $this->data;
+//	}
+//
+//
 	public function getSpent()
 	{
 		$moneySpent = 0;
-		foreach ($this->data as $record) 
+		foreach ($this->all() as $record)
 		{
-			if ($record['category'] == 'Consuming')
+			if ($record->category == 'Consuming')
 			{
-				$moneySpent += $record['price'];
+				$moneySpent += $record->price;
 			}
 		}
 		return $moneySpent;
 	}
-
-
+//
+//
 	public function getEarned()
 	{
 		$moneyEarned = 0;
-		foreach ($this->data as $record) 
+		foreach ($this->all() as $record)
 		{
-			if ($record['category'] == 'Recycling')
+			if ($record->category == 'Recycling')
 			{
-				$moneyEarned += $record['price'];
+				$moneyEarned += $record->price;
 			}
 		}
 		return $moneyEarned;

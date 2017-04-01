@@ -84,18 +84,19 @@ class PartController extends Application
 
 		$source = $this->parts->get($id);
 
-		$this->data['id'] = $source['partID'];
+		$this->data['partID'] = $source->partID;
 		
-		$this->data['part_code'] = $source['part_code'];
+		$this->data['model'] = $source->model;
+
+        $this->data['piece'] = $source->piece;
+
+        $this->data['plant'] = $source->plant;
+
+        $this->data['line'] = $source->line;
 		
-		$this->data['CA_code'] = $source['CA_code'];
+		$this->data['CA_code'] = $source->CA_code;
 		
-		$this->data['manufacturer'] = $source['manufacturer'];
-		
-		$this->data['built_date'] = $source['built_date'];
-        
-        $this->data['cost'] = $source['cost'];
-        $this->data['isAvailable'] = $source['isAvailable'];
+		$this->data['stamp'] = $source->stamp;
 
 		$this->render();
 	}

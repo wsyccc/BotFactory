@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AssemblyController extends Application
 {
+
+
+
     function __construct()
     {
         parent::__construct();
@@ -14,6 +17,12 @@ class AssemblyController extends Application
      */
     public function index()
     {
+        $top = array();
+        $torso = array();
+        $bottom = array();
+        $cellsForRobots = array();
+
+
         $role = $this->session->userdata('userrole');
         if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
 
@@ -43,11 +52,11 @@ class AssemblyController extends Application
 
         //assembly the single parts tp a parser
         foreach ($parts as $part){
-            if($part["piece"] === "Top"){
+            if($part->piece == 1){
                 $top[]= $this->parser->parse('Assembly/_singlePart', (array) $part, true);
-            }else if($part["piece"] === "Torso"){
+            }else if($part->piece == 2){
                 $torso[]= $this->parser->parse('Assembly/_singlePart', (array) $part, true);
-            }else{
+            }else if($part->piece == 3){
                 $bottom[]= $this->parser->parse('Assembly/_singlePart', (array) $part, true);
             }
         }
