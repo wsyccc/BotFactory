@@ -51,13 +51,13 @@ class HistoryController extends Application
         {
             // transactionId | customerName | date | category | type | price | description | partId
             $history[] = array (
-                'transactionId' => $record['transactionID'],
-                'customerName' => $record['customerName'],
-                'date' => $record['date'],
-                'category' => $record['category'],
-                'price' => $record['price'],
-                'description' => $record['description'],
-                'partID' => $record['partID']
+                'transactionId' => $record->transactionID,
+                'customer' => $record->customer,
+                'date' => $record->stamp,
+                'category' => $record->category,
+                'price' => $record->price,
+                'description' => $record->description,
+                'partID' => $record->partID
             );
         }
 

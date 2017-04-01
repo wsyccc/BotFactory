@@ -17,7 +17,7 @@
          {history}
          <tr>
             <td>
-                {customerName}
+                {customer}
             </td>
             <td>
                 {category}

@@ -1,6 +1,6 @@
 <a href="/parts/{partID}">
-    <img src="/pix/parts/{part_code}.jpeg" class="img-responsive" />
+    <img src="/pix/parts/{model}{piece}.jpeg" class="img-responsive" />
 </a>
 <div class="partSelector">
-    <input type="checkbox" name="partCheck" value="{partID}" class="checkboxPart">  I'm {part_code}
+    <input type="checkbox" name="partCheck" value="{partID}" class="checkboxPart">  I'm {model}{piece}
 </div>

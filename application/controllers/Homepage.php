@@ -22,9 +22,12 @@ class Homepage extends Application
 	public function index()
 	{
 		$role = $this->session->userdata('userrole');
-
+        if($role == null){
+            $this->session->set_userdata('userrole',ROLE_GUEST);
+        }
 	    //set page title and view
 		$this->data['pagetitle'] = 'BotFactory - Homepage ('. $role . ')';
+
 
 		switch ($role) {
 			case ROLE_GUEST:
@@ -44,8 +47,8 @@ class Homepage extends Application
 		$this->data['pagebody'] = 'homepage' ;
 
         // get all the parameters the dashboard need
-		$parts = $this->parts->count();
-		$robots = $this->robots->count();
+		$parts = $this->parts->size();
+		$robots = $this->robots->size();
 		$spent = $this->history->getSpent();
 		$earned = $this->history->getEarned();
 		$data = array('parts' => $parts, 'robots' => $robots, 'spent' => $spent , 'earned' => $earned);
