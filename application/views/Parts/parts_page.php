@@ -1,5 +1,15 @@
 <h1>Parts</h1>
 
+<form method="post" action="PartController/build">
+	<button class="btn btn-default">Build more parts</button>
+</form>
+
+<form method="post" action="PartController/buy">
+	<button class="btn btn-default">Buy parts</button>
+</form>
+
+<br>
+
 <div class="row">
 	{parts}
 		<div class="col-xs-4" id="thePart">
