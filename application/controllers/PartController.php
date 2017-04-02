@@ -150,10 +150,36 @@ class PartController extends Application
 	 */
 	public function buy()
 	{
-		
+		$parts_response = file_get_contents("http://umbrella.jlparry.com/work/buybox?key=2e3cb5");
+
+		$box_parts = json_decode($parts_response, true);
+
+		foreach ($box_parts as $part) {
+			$p = $this->parts->create();
+
+			$p->CA_code = $part['id'];
+			$p->model = $part['model'];
+			$p->piece = $part['piece'];
+			$p->plant = $part['plant'];
+			$p->stamp = $part['stamp'];
+			$p->piece = $part['piece'];
+			// get line
+			if (preg_match("/^[a-lA-L]$/", $part['model'])) {
+				$p->line = "household";
+			} else if (preg_match("/^[m-vM-V]$/", $part['model'])) {
+				$p->line = "butler";
+			} else {
+				$p-> line = "companion";
+			}
+			$p->isAvailable = 1;
+
+			// insert into database
+			$this->parts->add($p);
+		}
+
 		// return to original page
 		$referred_from = $this->session->userdata('referred_from');
-		//redirect($referred_from, 'refresh');
+		redirect($referred_from, 'refresh');
 	}
 
 }
