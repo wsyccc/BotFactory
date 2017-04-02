@@ -109,11 +109,36 @@ class PartController extends Application
 	 */
 	public function build()
 	{
-		// get api key
-		//$response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/22156b"));
+		$token = '';
+		$properties = $this->properties->head();
+		if (sizeof($properties) == 0) {
+			// if empty (e.g. no token)
+			$response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/22156b"));
+			$token = $response[1];
 
-		//$parts_response = file_get_contents("http://umbrella.jlparry.com/work/mybuilds?key=" . $response[1]);
-		$parts_response = file_get_contents("http://umbrella.jlparry.com/work/mybuilds?key=2e3cb5");
+			$db_token = $this->properties->create();
+			$db_token->token = $token;
+			$this->properties->add($db_token);
+
+			$properties = $this->properties->head();
+		}
+
+		// grab api key (token)
+		$token = $properties[0]->token;
+
+		$parts_response = file_get_contents("http://umbrella.jlparry.com/work/mybuilds?key=" . $token);
+
+		if ($parts_response == "Oops: I don't recognize you!") {
+			// Update token
+			$response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/22156b"));
+			$token = $response[1];
+
+			$db_token = $this->properties->create();
+			$db_token->token = $token;
+			$this->properties->add($db_token);
+
+			$properties = $this->properties->head();
+		}
 
 		$built_parts = json_decode($parts_response, true);
 
@@ -150,31 +175,50 @@ class PartController extends Application
 	 */
 	public function buy()
 	{
-		$parts_response = file_get_contents("http://umbrella.jlparry.com/work/buybox?key=2e3cb5");
+		$token = '';
+		$properties = $this->properties->head();
+		if (sizeof($properties) == 0) {
+			// if empty (e.g. no token)
+			$response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/22156b"));
+			$token = $response[1];
+
+			$db_token = $this->properties->create();
+			$db_token->token = $token;
+			$this->properties->add($db_token);
+
+			$properties = $this->properties->head();
+		}
+
+		// grab api key (token)
+		$token = $properties[0]->token;
+
+		$parts_response = file_get_contents("http://umbrella.jlparry.com/work/buybox?key=" . $token);
 
 		$box_parts = json_decode($parts_response, true);
 
-		foreach ($box_parts as $part) {
-			$p = $this->parts->create();
+		if (is_array($box_parts)) {
+			foreach ($box_parts as $part) {
+				$p = $this->parts->create();
 
-			$p->CA_code = $part['id'];
-			$p->model = $part['model'];
-			$p->piece = $part['piece'];
-			$p->plant = $part['plant'];
-			$p->stamp = $part['stamp'];
-			$p->piece = $part['piece'];
-			// get line
-			if (preg_match("/^[a-lA-L]$/", $part['model'])) {
-				$p->line = "household";
-			} else if (preg_match("/^[m-vM-V]$/", $part['model'])) {
-				$p->line = "butler";
-			} else {
-				$p-> line = "companion";
+				$p->CA_code = $part['id'];
+				$p->model = $part['model'];
+				$p->piece = $part['piece'];
+				$p->plant = $part['plant'];
+				$p->stamp = $part['stamp'];
+				$p->piece = $part['piece'];
+				// get line
+				if (preg_match("/^[a-lA-L]$/", $part['model'])) {
+					$p->line = "household";
+				} else if (preg_match("/^[m-vM-V]$/", $part['model'])) {
+					$p->line = "butler";
+				} else {
+					$p-> line = "companion";
+				}
+				$p->isAvailable = 1;
+
+				// insert into database
+				$this->parts->add($p);
 			}
-			$p->isAvailable = 1;
-
-			// insert into database
-			$this->parts->add($p);
 		}
 
 		// return to original page
