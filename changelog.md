@@ -16,8 +16,10 @@ Changelog format: Bottom to top (New to old).
 <h2>Version: </h2>
 Version | Release Date | Description  | Editor
 --- | --- | --- | ---
-*v2.6* | Apr 02, 2017 | Build parts fixed api key problem | `jasonlee97`
-*v2.5* | Apr 02, 2017 | Buy box and build parts grabs api key from database | `jasonlee97`
+*v2.8* | Apr 02, 2017 | Modified history page and controller to track necessary information only | `jasonlee97`
+*v2.7* | Apr 02, 2017 | Build parts fixed api key problem | `jasonlee97`
+*v2.6* | Apr 02, 2017 | Buy box and build parts grabs api key from database | `jasonlee97`
+*v2.5* | Apr 02, 2017 | Added history pagination and flexible ordering/sorting. | `bcitdaltond`
 *v2.4* | Apr 01, 2017 | Added buy box and build parts that update parts database | `jasonlee97`
 *v2.3* | Mar 31, 2017 | Migrate the project that work with mysql database | `wsyccc`
 *v2.2* | Mar 30, 2017 | Added dashboard and hide buttons | `Arv91`
