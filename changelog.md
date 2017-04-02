@@ -16,6 +16,7 @@ Changelog format: Bottom to top (New to old).
 <h2>Version: </h2>
 Version | Release Date | Description  | Editor
 --- | --- | --- | ---
+*v2.4* | Apr 02, 2017 | Added history pagination and flexible ordering/sorting. | `bcitdaltond`
 *v2.3* | Mar 31, 2017 | Migrate the project that work with mysql database | `wsyccc`
 *v2.2* | Mar 30, 2017 | Added dashboard and hide buttons | `Arv91`
 *v2.1* | Mar 29, 2017 | Added user roles | `Arv91`
