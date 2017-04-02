@@ -34,10 +34,9 @@ class History extends MY_Model
 		$moneySpent = 0;
 		foreach ($this->all() as $record)
 		{
-			if ($record->category == 'Consuming')
-			{
-				$moneySpent += $record->price;
-			}
+			
+			$moneySpent += $record->amount;
+			
 		}
 		return $moneySpent;
 	}
@@ -48,17 +47,21 @@ class History extends MY_Model
 		$moneyEarned = 0;
 		foreach ($this->all() as $record)
 		{
-			if ($record->category == 'Recycling')
-			{
-				$moneyEarned += $record->price;
-			}
+			
+			$moneyEarned += $record->amount;
+			
 		}
 		return $moneyEarned;
 	}
 
     //Add a record to the history table
-    public function add($transaction) {
-        $this->db->insert('history', $transaction);
+    public function add($record) {
+    	$transaction = $this->create();
+    	$transaction->category = $record['category'];
+    	$transaction->description = $record['description'];
+    	$transaction->stamp = date('Y-m-d H:i:s', time());
+
+    	$this->add($transaction);
     }
 
     //Remove all records inside the history table
