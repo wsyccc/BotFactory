@@ -57,6 +57,7 @@ $route['robots/(:num)'] = 'RobotController/details/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['history'] = "HistoryController/index";
+$route['history/page/(:num)'] = "HistoryController/page/$1";
 $route['assembly'] = "AssemblyController/index";
 $route['parts'] = "PartController/index";
 $route['about'] = "AboutController/index";
