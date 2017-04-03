@@ -16,7 +16,7 @@ Changelog format: Bottom to top (New to old).
 <h2>Version: </h2>
 Version | Release Date | Description  | Editor
 --- | --- | --- | ---
-*v2.9* | Apr 02, 2017 | Added assembly function to consume the parts | `wsyccc`
+*v2.10* | Apr 02, 2017 | Added assembly function to consume the parts | `wsyccc`
 *v2.9* | Apr 02, 2017 | Fixed up small errors in buy box and build parts | `jasonlee97`
 *v2.8* | Apr 02, 2017 | Modified history page and controller to track necessary information only | `jasonlee97`
 *v2.7* | Apr 02, 2017 | Build parts fixed api key problem | `jasonlee97`

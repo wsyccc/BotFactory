@@ -10,7 +10,7 @@
         </div>
     </form>
 
-    <form method="post" action="AssemblyController/assemblyOrReturn">
+    <form method="post" action="AssemblyController/ship">
         {tableRobots}
         <div class="ship">
             <input type="submit" name="ship" value="Ship it Now" />

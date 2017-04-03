@@ -110,7 +110,7 @@ class AssemblyController extends Application
             $this->data['tableTorso'] = "<h3 style='text-align: center'>No Torso Parts</h3>";
         }
         $this->table->set_caption('Bottom Part');
-        if (!empty($top)) {
+        if (!empty($bottom)) {
             $rows = $this->table->make_columns($bottom, 3);
             $this->data['tableBottom'] = $this->table->generate($rows);
         } else {
@@ -190,7 +190,7 @@ class AssemblyController extends Application
                 //add record to history table
                 foreach ($parts as $part) {
                     $addHistory = array(
-                        'category' => 'Making',
+                        'category' => 'Consuming',
                         'description' => 'assembly robots',
                         'amount' => -5,
                     );
@@ -199,21 +199,22 @@ class AssemblyController extends Application
                 $this->errorMessage("Build Successful");
             }
 
+            // return the parts
         } else if (isset($_POST['return']) && !empty($_POST['return'])) {
             $parts = array();
             $partsReturn = $this->input->post('partCheck');
-            $amount = 0;
-            $url = 'https://umbrella.jlparry.com/work/recycle';
-            $token = $this->properties->first()->token;
+            $url = 'http://umbrella.jlparry.com/work/recycle';
+            $current_token = $this->properties->head(1);
+            $token = $current_token[0]->token;
             //get parts selected
-            foreach ($partsAssembly as $part) {
+            foreach ($partsReturn as $part) {
                 $parts[] = $this->parts->get($part);
             }
             if (empty($parts)) {
                 $this->errorMessage("Select at least one part to return");
             } else {
                 foreach ($parts as $part) {
-                    $returnUrl = $url . "/" . $part->CA_code . "/?key=" . $token;
+                    $returnUrl = $url . "/" . $part->CA_code . "?key=" . $token;
                     $response = file_get_contents($returnUrl);
                     $responseArray = explode(" ", $response);
                     if ($responseArray[0] == "Ok") {
@@ -231,12 +232,54 @@ class AssemblyController extends Application
                         );
                         $this->history->add($addHistory);
                     }
-
+                    else{
+                        $this->errorMessage("Cannot Return");
+                    }
                 }
+                $this->errorMessage("Successful Returned");
             }
 
         }
+    }
 
+    public function ship(){
+        $role = $this->session->userdata('userrole');
+        if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
+
+        if(isset($_POST['robotCheck']) && !empty($_POST['robotCheck'])){
+            $robots = $this->input->post('robotCheck');
+            $url = 'http://umbrella.jlparry.com/work/buymybot';
+            $current_token = $this->properties->head(1);
+            $token = $current_token[0]->token;
+            foreach ($robots as $robot){
+                for($i =0; $i < 3; $i++){
+                    $shipUrl = $url . "/" . $robot->CA_code . "?key=" . $token;
+                }
+
+                $response = file_get_contents($shipUrl);
+                $responseArray = explode(" ", $response);
+//                if ($responseArray[0] == "Ok") {
+//                    $amount = $responseArray[1];
+//                    $updatePart = array(
+//                        'partID' => $part->partID,
+//                        'isAvailable' => 0
+//                    );
+//                    $this->parts->update($updatePart);
+//
+//                    $addHistory = array(
+//                        'category' => 'Recycle',
+//                        'description' => 'recycle parts',
+//                        'amount' => $amount,
+//                    );
+//                    $this->history->add($addHistory);
+//                }
+//                else{
+//                    $this->errorMessage("Cannot Return");
+//                }
+            }
+        }else{
+            $this->errorMessage("No robot selected");
+        }
     }
 
     public function errorMessage($message)
