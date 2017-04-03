@@ -149,12 +149,12 @@ class PartController extends Application
 			$record = array('category' => 'Build', 'description' => 'Built ' . $size . ' parts');
 
 			// Update history table
-			$this->history->add($record);
+			//$this->history->add($record);
 		}
 
 		// return to original page
 		$referred_from = $this->session->userdata('referred_from');
-		//redirect($referred_from, 'refresh');
+		redirect($referred_from, 'refresh');
 	}
 
 	/**
@@ -180,9 +180,6 @@ class PartController extends Application
 		foreach ($properties as $token_property) {
 			array_push($tokens, $token_property->token);
 		}
-
-		// TEST
-		print_r($tokens);
 
 		foreach ($tokens as $token) {
 			$parts_response = file_get_contents("http://umbrella.jlparry.com/work/buybox?key=" . $token);
@@ -221,7 +218,7 @@ class PartController extends Application
 
 		// return to original page
 		$referred_from = $this->session->userdata('referred_from');
-		//redirect($referred_from, 'refresh');
+		redirect($referred_from, 'refresh');
 	}
 
 }
