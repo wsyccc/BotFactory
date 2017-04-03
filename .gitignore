@@ -9,3 +9,4 @@
 /public/ci_sessions/
 .idea
 /application/config/database.php
+password.txt

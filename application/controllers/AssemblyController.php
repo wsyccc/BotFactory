@@ -183,7 +183,10 @@ class AssemblyController extends Application
                     'torsoPartId' => $parts[1]->model,
                     'bottomPartId' => $parts[2]->model,
                     'type' => $type,
-                    'cost' => 15
+                    'cost' => 15,
+                    'topCode' => $parts[0]->CA_code,
+                    'torsoCode' => $parts[1]->CA_code,
+                    'bottomCode' => $parts[2]->CA_code,
                 );
                 $this->robots->add($robot);
 
@@ -204,6 +207,17 @@ class AssemblyController extends Application
             $parts = array();
             $partsReturn = $this->input->post('partCheck');
             $url = 'http://umbrella.jlparry.com/work/recycle';
+            $properties = $this->properties->tail();
+            if (sizeof($properties) == 0) {
+                // if empty (e.g. no token)
+                $password = file_get_contents("password.txt");
+                $response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/$password"));
+                $token = $response[1];
+
+                $db_token = $this->properties->create();
+                $db_token->token = $token;
+                $this->properties->add($db_token);
+            }
             $current_token = $this->properties->head(1);
             $token = $current_token[0]->token;
             //get parts selected
@@ -231,9 +245,10 @@ class AssemblyController extends Application
                             'amount' => $amount,
                         );
                         $this->history->add($addHistory);
+
                     }
                     else{
-                        $this->errorMessage("Cannot Return");
+                        $this->errorMessage(implode(" ", $responseArray));
                     }
                 }
                 $this->errorMessage("Successful Returned");
@@ -247,36 +262,45 @@ class AssemblyController extends Application
         if ($role == ROLE_GUEST || $role == ROLE_WORKER) redirect('/home');
 
         if(isset($_POST['robotCheck']) && !empty($_POST['robotCheck'])){
-            $robots = $this->input->post('robotCheck');
+            $robotsID = $this->input->post('robotCheck');
+            $robots = array();
+            foreach ($robotsID as $id){
+                $robots[] = $this->robots->get($id);
+            }
             $url = 'http://umbrella.jlparry.com/work/buymybot';
+            $properties = $this->properties->tail();
+            if (sizeof($properties) == 0) {
+                // if empty (e.g. no token)
+                $password = file_get_contents("password.txt");
+                $response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/$password"));
+                $token = $response[1];
+
+                $db_token = $this->properties->create();
+                $db_token->token = $token;
+                $this->properties->add($db_token);
+            }
             $current_token = $this->properties->head(1);
             $token = $current_token[0]->token;
             foreach ($robots as $robot){
-                for($i =0; $i < 3; $i++){
-                    $shipUrl = $url . "/" . $robot->CA_code . "?key=" . $token;
-                }
-
+                $shipUrl = $url . "/" . $robot->topCode."/".$robot->torsoCode."/".$robot->bottomCode. "?key=" . $token;
                 $response = file_get_contents($shipUrl);
                 $responseArray = explode(" ", $response);
-//                if ($responseArray[0] == "Ok") {
-//                    $amount = $responseArray[1];
-//                    $updatePart = array(
-//                        'partID' => $part->partID,
-//                        'isAvailable' => 0
-//                    );
-//                    $this->parts->update($updatePart);
-//
-//                    $addHistory = array(
-//                        'category' => 'Recycle',
-//                        'description' => 'recycle parts',
-//                        'amount' => $amount,
-//                    );
-//                    $this->history->add($addHistory);
-//                }
-//                else{
-//                    $this->errorMessage("Cannot Return");
-//                }
+                if ($responseArray[0] == "Ok") {
+                    $amount = $responseArray[1];
+                    $this->robots->delete($robot->robotID);
+
+                    $addHistory = array(
+                        'category' => 'Shipped',
+                        'description' => 'Sale a robot',
+                        'amount' => $amount,
+                    );
+                    $this->history->add($addHistory);
+                }else{
+                    $this->errorMessage(implode(" ", $responseArray));
+                    break;
+                }
             }
+            $this->errorMessage(implode(" ", $responseArray));
         }else{
             $this->errorMessage("No robot selected");
         }

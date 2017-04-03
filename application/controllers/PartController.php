@@ -109,8 +109,23 @@ class PartController extends Application
 	 */
 	public function build()
 	{
-		$current_token = $this->properties->head(1);
-		$token = $current_token[0]->token;
+
+        $properties = $this->properties->tail();
+        if (sizeof($properties) == 0) {
+            // if empty (e.g. no token)
+            $password = file_get_contents("password.txt");
+            $response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/$password"));
+            $token = $response[1];
+
+            $db_token = $this->properties->create();
+            $db_token->token = $token;
+            $this->properties->add($db_token);
+        }
+        $current_token = $this->properties->head(1);
+        $token = $current_token[0]->token;
+
+
+
 
 		$parts_response = file_get_contents("http://umbrella.jlparry.com/work/mybuilds?key=" . $token);
 		$built_parts = json_decode($parts_response, true);
@@ -167,7 +182,8 @@ class PartController extends Application
 		$properties = $this->properties->tail();
 		if (sizeof($properties) == 0) {
 			// if empty (e.g. no token)
-			$response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/22156b"));
+            $password = file_get_contents("password.txt");
+            $response = explode(' ', file_get_contents("http://umbrella.jlparry.com/work/registerme/apple/$password"));
 			$token = $response[1];
 
 			$db_token = $this->properties->create();

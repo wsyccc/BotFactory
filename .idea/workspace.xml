@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a38872-0e64-41f3-b87c-e036f91320b9" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/ManageController.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/AssemblyController.php" afterPath="$PROJECT_DIR$/application/controllers/AssemblyController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/PartController.php" afterPath="$PROJECT_DIR$/application/controllers/PartController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/history.php" afterPath="$PROJECT_DIR$/application/models/history.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/Assembly/assembly.php" afterPath="$PROJECT_DIR$/application/views/Assembly/assembly.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/changelog.md" afterPath="$PROJECT_DIR$/changelog.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +27,8 @@
             <file leaf-file-name="PartController.php" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/application/controllers/PartController.php">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="589">
-                    <caret line="114" column="103" lean-forward="true" selection-start-line="114" selection-start-column="103" selection-end-line="114" selection-end-column="103" />
+                  <state relative-caret-position="702">
+                    <caret line="185" column="119" lean-forward="false" selection-start-line="185" selection-start-column="119" selection-end-line="185" selection-end-column="119" />
                     <folding />
                   </state>
                 </provider>
@@ -83,24 +83,14 @@
       <file leaf-file-name="AssemblyController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/AssemblyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+            <state relative-caret-position="531">
+              <caret line="334" column="18" lean-forward="true" selection-start-line="334" selection-start-column="18" selection-end-line="334" selection-end-column="18" />
               <folding>
-                <marker date="1491200595131" expanded="true" signature="3199:3217" ph="..." />
-                <marker date="1491200595131" expanded="true" signature="3527:3545" ph="..." />
-                <marker date="1491200595131" expanded="true" signature="3862:3880" ph="..." />
-                <marker date="1491200595131" expanded="true" signature="4220:4238" ph="..." />
+                <marker date="1491205820350" expanded="true" signature="3199:3217" ph="..." />
+                <marker date="1491205820350" expanded="true" signature="3527:3545" ph="..." />
+                <marker date="1491205820350" expanded="true" signature="3862:3880" ph="..." />
+                <marker date="1491205820350" expanded="true" signature="4220:4238" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ManageController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -120,6 +110,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
               <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_singlePart.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/Assembly/_singlePart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -148,8 +148,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+            <state relative-caret-position="429">
+              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -169,8 +169,8 @@
         <entry file="file://$PROJECT_DIR$/changelog.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="351">
-                <caret line="24" column="79" lean-forward="false" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+              <first_editor relative-caret-position="702">
+                <caret line="18" column="90" lean-forward="false" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -191,6 +191,7 @@
     <findStrings>
       <find>$which</find>
       <find>get</find>
+      <find>$properties</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -213,10 +214,11 @@
         <option value="$PROJECT_DIR$/application/config/constants.php" />
         <option value="$PROJECT_DIR$/application/models/properties.php" />
         <option value="$PROJECT_DIR$/application/models/history.php" />
-        <option value="$PROJECT_DIR$/application/controllers/PartController.php" />
         <option value="$PROJECT_DIR$/application/views/Assembly/assembly.php" />
-        <option value="$PROJECT_DIR$/application/controllers/AssemblyController.php" />
         <option value="$PROJECT_DIR$/application/controllers/ManageController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/PartController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/application/controllers/AssemblyController.php" />
         <option value="$PROJECT_DIR$/changelog.md" />
       </list>
     </option>
@@ -650,12 +652,12 @@
       <workItem from="1491138140469" duration="1906000" />
       <workItem from="1491162992262" duration="22000" />
       <workItem from="1491163052225" duration="45000" />
-      <workItem from="1491163307594" duration="25731000" />
+      <workItem from="1491163307594" duration="29397000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27731000" />
+    <option name="totallyTimeSpent" value="31397000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="2578" height="1408" extended-state="6" />
@@ -942,14 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Assembly/_singlePart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/About/about.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1000,34 +994,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/PartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="114" column="103" lean-forward="true" selection-start-line="114" selection-start-column="103" selection-end-line="114" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/Assembly/_singleRobot.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="4" column="43" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/Assembly/assembly.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -1064,6 +1034,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ManageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/history.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2496">
@@ -1080,23 +1058,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ManageController.php">
+    <entry file="file://$PROJECT_DIR$/application/views/Assembly/assembly.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="468">
+          <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/Assembly/_singlePart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/PartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="185" column="119" lean-forward="false" selection-start-line="185" selection-start-column="119" selection-end-line="185" selection-end-column="119" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AssemblyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state relative-caret-position="531">
+          <caret line="334" column="18" lean-forward="true" selection-start-line="334" selection-start-column="18" selection-end-line="334" selection-end-column="18" />
           <folding>
-            <marker date="1491200595131" expanded="true" signature="3199:3217" ph="..." />
-            <marker date="1491200595131" expanded="true" signature="3527:3545" ph="..." />
-            <marker date="1491200595131" expanded="true" signature="3862:3880" ph="..." />
-            <marker date="1491200595131" expanded="true" signature="4220:4238" ph="..." />
+            <marker date="1491205820350" expanded="true" signature="3199:3217" ph="..." />
+            <marker date="1491205820350" expanded="true" signature="3527:3545" ph="..." />
+            <marker date="1491205820350" expanded="true" signature="3862:3880" ph="..." />
+            <marker date="1491205820350" expanded="true" signature="4220:4238" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1104,8 +1106,8 @@
     <entry file="file://$PROJECT_DIR$/changelog.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="351">
-            <caret line="24" column="79" lean-forward="false" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+          <first_editor relative-caret-position="702">
+            <caret line="18" column="90" lean-forward="false" selection-start-line="18" selection-start-column="90" selection-end-line="18" selection-end-column="90" />
             <folding />
           </first_editor>
           <second_editor />
