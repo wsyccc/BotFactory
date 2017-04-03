@@ -55,6 +55,7 @@ class History extends MY_Model
 	}
 
     //Add a record to the history table
+
 //    public function add($record) {
 //    	$transaction = $this->create();
 //    	$transaction->category = $record['category'];
@@ -63,6 +64,7 @@ class History extends MY_Model
 //
 //    	$this->add($transaction);
 //    }
+
 
     //Remove all records inside the history table
     public function deleteAll() {

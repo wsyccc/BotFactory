@@ -150,7 +150,11 @@ class PartController extends Application
 
 			// Update history table
 
-            $this->history->add($record);
+
+       $this->history->add($record);
+
+			//$this->history->add($record);
+
 		}
 
 		// return to original page
@@ -213,11 +217,11 @@ class PartController extends Application
 
 					// insert into database
 					$this->parts->add($p);
-                    $record = array('category' => 'Buy Box', 'description' => 'Buy a Box ');
+          $record = array('category' => 'Buy Box', 'description' => 'Buy a Box ');
 
                     // Update history table
+          $this->history->add($record);
 
-                    $this->history->add($record);
 				}
 			}
 		}
