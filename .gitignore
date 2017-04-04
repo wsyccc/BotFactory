@@ -10,3 +10,4 @@
 .idea
 password.txt
 /public/password.txt
+/application/config/database.php
